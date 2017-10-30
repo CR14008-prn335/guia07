@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="generador" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.GenericManagedBean" required="true" shortDescription="generador del crud"/>
+   
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <p:panel visible="#{tipoPostBean.btnVisible}">
+            <p:commandButton value="#{msg['generador.modificar']}" actionListener="#{cc.attrs.generador.editar()}" update="@form :tabla">
+            </p:commandButton>
+            <p:commandButton value="#{msg['generador.eliminar']}" actionListener="#{cc.attrs.generador.eliminar()}" update="@form :tabla"/>
+            <p:commandButton value="#{msg['generador.cancelar']}" immediate="true">
+                <p:ajax listener="#{tipoPostBean.btnCancelar()}" update="@form :tabla"/>
+            </p:commandButton>
+        </p:panel>
+    </cc:implementation>
+</html>
